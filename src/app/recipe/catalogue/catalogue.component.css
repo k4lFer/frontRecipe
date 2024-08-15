@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.catalogue {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  background-color: #001b09;
+  position: relative;
+  height: 100%;
+  width: 195vh;
+  z-index: 1;
+  align-items: center; /* Centrar contenido horizontalmente */
+}
+
+.list-recipe {
+  margin-top: 100px;
+  text-align: center; /* Centra el texto dentro de .list-recipe */
+
+  z-index: 3;
+  border-radius: 30px;
+}
+
+.list-recipe h1 {
+  margin-right: 10px;
+  font-size: 45px;
+}
+
+.fond {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #011f0a;
+  z-index: 0;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 15px; /* Espacio entre los botones */
+  margin: 20px 0; /* Espacio arriba y abajo */
+}
+
+.filter-buttons button {
+  padding: 10px 20px;
+  background-color: #bb971f;
+  color: #fff;
+  border: none;
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 300ms ease, transform 300ms ease; /* Transición suave para fondo y transformación */
+}
+
+.filter-buttons button:hover {
+  background-color: #5a6268; /* Color de fondo al pasar el cursor */
+  transform: scale(1.05); /* Escalar ligeramente el botón al pasar el cursor */
+}
+
+.filter-buttons button:active {
+  background-color: #4e5d6c; /* Color de fondo cuando se hace clic */
+  transform: scale(0.95); /* Escalar el botón hacia abajo al hacer clic */
+}
+
+.recipe-cards {
+  margin-top: 20px; /* Ajustar si es necesario */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-left: 130px;
+}
+
+/* Animaciones para las tarjetas de recetas */
+.recipe-card {
+  position: relative;
+  margin: 10px;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 5%;
+  cursor: pointer;
+  opacity: 1; /* Asegúrate de que las tarjetas estén visibles inicialmente */
+  transition: opacity 300ms ease, transform 300ms ease;
+  transform: translateY(0);
+}
+
+.recipe-card.hidden {
+  opacity: 0;
+  transform: translateY(20px); 
+}
+
+.recipe-card img,
+.recipe-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1; /* Asegura que las imágenes sean visibles al inicio */
+  transition: opacity 300ms ease-in-out;
+}
+
+.recipe-card:hover .recipe-name,
+.recipe-card:hover .favorite-icon {
+  display: flex;
+}
+
+.recipe-card .recipe-name,
+.recipe-card .favorite-icon {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 5px 0;
+  color: #fff;
+  text-align: center;
+}
+
+.recipe-card .recipe-name {
+  bottom: 0;
+  left: 0;
+}
+
+.recipe-card .favorite-icon {
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.644); /* Fondo negro con transparencia */
+  border-radius: 100%;
+  color: #d4af37;
+  cursor: pointer;
+}
+
+.favorite-icon i {
+  font-size: 24px;
+}
+
+.favorite-icon:hover i {
+  color: #ff0000; /* Cambia el color al pasar el mouse por encima */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  color: #fff239;
+  margin-top: 110px;
+
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #000000;
+  padding: 50px;
+  text-align: left;
+  position: relative;
+  z-index: 5;
+  width: 90%;
+  max-width: 950px; /* Ancho máximo del contenido del modal */
+  max-height: 100%; /* Altura máxima del contenido del modal */
+  overflow-y: auto;
+  border: 5px solid #FFDB58; /* Borde elegante de color mostaza */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto más elegante */
+  border-radius: 20px;
+  margin-bottom: 100px;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.image-modal {
+  width: 350px;
+  height: 350px;
+  margin-left: 500px;
+  position: absolute;
+  border-radius: 20px;
+  margin-top: -10px;
+  object-fit: cover;
+}
+.procedure-text {
+  white-space: pre-wrap; /* Respeta los saltos de línea en el texto */
+  max-width: 100%; /* Asegura que el texto no exceda el ancho del contenedor */
+  word-wrap: break-word; /* Asegura que las palabras largas se dividan */
+  font-size: 19px;
+  line-height: 1.5;
+  font-family: 'Merriweather', serif;
+  color: #fff;
+
+}
+.ingredients-text{
+  font-size: 19px;
+  font-family: 'Merriweather', serif;
+color: #fff;
+line-height: 1.7;
+
+}
+.subtitulo{
+font-size: 40px;
+margin-bottom: -10px;
+font-family: 'Playfair Display', serif;
+
+}
+.titulo{
+font-size: 65px;
+margin-left: 150px;
+margin-top: 5px;
+font-family: 'Great Vibes', cursive;
+}
+
+
+
+.video-container iframe {
+  margin-top: 50px;
+}

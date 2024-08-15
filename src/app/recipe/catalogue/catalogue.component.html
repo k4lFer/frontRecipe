@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="fond"></div>
+<div class="catalogue">
+  <div class="list-recipe">
+    <h1>Lista de recetas culinarias</h1>
+    <div class="filter-buttons">
+      <button (click)="filterRecipes('all')">Todos</button>
+      <button (click)="filterRecipes('main')">Platos</button>
+      <button (click)="filterRecipes('desserts')">Postres</button>
+      <button (click)="filterRecipes('starters')">Entradas</button>
+    </div>
+  </div>
+  <div class="recipe-cards">
+    <div
+      *ngFor="let recipe of filteredRecipes"
+      class="recipe-card"
+      (mouseenter)="showVideo(recipe)"
+      (mouseleave)="hideVideo(recipe)"
+      (click)="openModal(recipe)"
+    >
+      <ng-container *ngIf="!recipe.showVideo; else videoTemplate">
+        <img [src]="recipe.image" alt="Imagen de {{ recipe.name }}" />
+      </ng-container>
+      <ng-template #videoTemplate>
+        <video [src]="recipe.video" autoplay loop muted></video>
+      </ng-template>
+      <div class="recipe-name">{{ recipe.name }}</div>
+      <div class="favorite-icon" (click)="toggleFavorite(recipe, $event)">
+        <i [class]="recipe.isFavorite ? 'fas fa-heart' : 'far fa-heart'"></i>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedRecipe" class="modal" [class.show]="showModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2 class="titulo">{{ selectedRecipe.name }}</h2>
+      <img class="image-modal" [src]="selectedRecipe.image" alt="Imagen de {{ selectedRecipe.name }}" />
+
+      <div class="modal-section">
+        <h3 class="subtitulo">Ingredientes :</h3>
+        <pre class="ingredients-text">{{ formatText(selectedRecipe.ingredients || '') }}</pre>
+      </div>
+
+      <div class="modal-section">
+        <h3 class="subtitulo">Procedimiento :</h3>
+        <pre class="procedure-text">{{ formatText(selectedRecipe.procedure || '') }}</pre>
+      </div>
+      <div class="modal-section" *ngIf="selectedRecipe.videocompleto">
+        <h3 class="subtitulo"></h3>
+        <iframe 
+          [src]="getSafeVideoUrl(selectedRecipe.videocompleto)" 
+          frameborder="0" 
+          allowfullscreen
+          style="width: 100%; height: 475px;">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+  

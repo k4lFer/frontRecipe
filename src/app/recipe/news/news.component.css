@@ -1,0 +1,70 @@
+/* Fondo que ocupa toda la pantalla */
+.food-news-container {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto en blanco */
+    min-height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow-y: auto; /* Permite el desplazamiento si hay muchas noticias */
+  }
+  .Container{
+    margin-top: 80px;
+    
+  }
+  .Container h2{
+margin-left: 330px;    
+font-size: 40px;
+color: #ad962c;
+  }
+  .news-card {
+    display: flex;
+    border: 1px solid #333; /* Borde gris oscuro */
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra más marcada */
+    background-color: #1c1c1c; /* Fondo de la tarjeta */
+    width: 100%; /* Ancho completo del contenedor */
+    max-width: 900px; /* Máximo ancho de la tarjeta */
+    height: 250px; /* Altura fija para todas las tarjetas */
+    transition: transform 0.3s;
+  }
+  
+  .news-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .news-image {
+    width: 150px;
+    height: 100%;
+    object-fit: cover;
+    border-right: 1px solid #333; /* Separador entre imagen y contenido */
+  }
+  
+  .news-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .news-content h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #fff; /* Título en blanco */
+  }
+  
+  .news-date {
+    color: #aaa; /* Fecha en gris claro */
+    font-size: 0.9em;
+  }
+  
+  .news-description {
+    margin-top: 10px;
+    color: #ddd; /* Descripción en gris claro */
+  }
+  

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="dark-layer"></div>
+<div class="home-container">
+
+  <!-- Fondo del carrusel -->
+  <div class="carousel background-carousel">
+    <div class="slide" *ngFor="let slide of backgroundSlides; let i = index" [class.active]="i === currentSlideIndex">
+      <img [src]="slide.img" alt="Slide background" />
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>Recetas Extraordinarias</h1>
+    <p>
+      Explora una vasta variedad de recetas deliciosas que te harán agua la boca. <br />
+      Desde platos principales exquisitos que deleitarán tus sentidos hasta postres <br />
+      irresistibles que endulzarán tus días, cada receta está meticulosamente diseñada <br />
+      para satisfacer todos tus antojos. Sumérgete en un mundo de sabores y texturas <br />
+      que transformarán tu experiencia culinaria, y descubre cómo cada plato puede ser <br />
+      una obra maestra en tu mesa
+    </p>
+    <a href="#" class="btn-arrow">&#8594;</a>
+  </div>
+
+  <!-- Carrusel del círculo -->
+  <div class="circle-carousel">
+    <div class="circle-slide" *ngFor="let slide of circleSlides; let i = index" [class.active]="i === currentCircleSlideIndex">
+      <img [src]="slide.img" alt="Slide circle" />
+    </div>
+  </div>
+</div>
+
+  

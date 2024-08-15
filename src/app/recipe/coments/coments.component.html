@@ -1,0 +1,15 @@
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+      <input type="text" placeholder="Usuario" [(ngModel)]="newComent.user" />
+      <textarea placeholder="Comentario" [(ngModel)]="newComent.coment"></textarea>
+      <input type="number" placeholder="Calificación (1-5)" [(ngModel)]="newComent.rating" min="1" max="5" />
+      <button (click)="addComment()">Añadir Comentario</button>
+    </div>
+  
+    <div *ngFor="let coment of coments" class="comment">
+      <h4>{{ coment.user }}</h4>
+      <p>{{ coment.coment }}</p>
+      <p class="rating">Calificación: {{ coment.rating }}</p>
+    </div>
+  </div>

@@ -1,0 +1,16 @@
+<app-header></app-header>
+<div class="food-news-container">
+    <div class="Container">
+    <h2>Nuevas noticias</h2>
+    <div class="news-card" *ngFor="let news of newsList">
+      <img [src]="news.imageUrl" alt="{{news.title}}" class="news-image"/>
+      <div class="news-content">
+        <h3>{{news.title}}</h3>
+        <p class="news-date">{{news.date}}</p>
+        <p class="news-description">{{news.description}}</p>
+      </div>
+    </div>
+</div>
+
+  </div>
+  
